@@ -1,4 +1,4 @@
-&lt;?php
+<?php
 // Ejemplo de configuración de conexión a base de datos
 // Copiar este archivo como "conexion.php" y configurar con tus credenciales
 
@@ -15,4 +15,4 @@ $conn = sqlsrv_connect($serverName, $connectionOptions);
 if ($conn === false) {
     die(print_r(sqlsrv_errors(), true));
 }
-?&gt;
+?>

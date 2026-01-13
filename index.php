@@ -1,59 +1,59 @@
-&lt;?php
+<?php
 $tituloPagina = 'Inicio - KwSin Portal Corporativo';
 include 'includes/header.php';
-?&gt;
+?>
 
-&lt;div class="container"&gt;
-    &lt;div class="welcome-section"&gt;
-        &lt;h1&gt;Bienvenido al Portal Corporativo KwSin&lt;/h1&gt;
-        &lt;p&gt;Hola &lt;strong&gt;&lt;?php echo htmlspecialchars($_SESSION['usuario']); ?&gt;&lt;/strong&gt;, accede rápidamente a las secciones del portal&lt;/p&gt;
-    &lt;/div&gt;
+<div class="container">
+    <div class="welcome-section">
+        <h1>Bienvenido al Portal Corporativo KwSin</h1>
+        <p>Hola <strong><?php echo htmlspecialchars($_SESSION['usuario']); ?></strong>, accede rápidamente a las secciones del portal</p>
+    </div>
 
-    &lt;div class="cards-grid"&gt;
-        &lt;a href="pages/comunicados.php" class="card"&gt;
-            &lt;div class="card-icon"&gt;📢&lt;/div&gt;
-            &lt;h3&gt;Comunicados&lt;/h3&gt;
-            &lt;p&gt;Consulta los últimos comunicados y anuncios importantes de la empresa&lt;/p&gt;
-        &lt;/a&gt;
+    <div class="cards-grid">
+        <a href="pages/comunicados.php" class="card">
+            <div class="card-icon">📢</div>
+            <h3>Comunicados</h3>
+            <p>Consulta los últimos comunicados y anuncios importantes de la empresa</p>
+        </a>
 
-        &lt;a href="pages/herramientas.php" class="card"&gt;
-            &lt;div class="card-icon"&gt;🛠️&lt;/div&gt;
-            &lt;h3&gt;Herramientas&lt;/h3&gt;
-            &lt;p&gt;Accede a las herramientas de trabajo: Cotizador y Consulta de Clientes&lt;/p&gt;
-        &lt;/a&gt;
+        <a href="pages/herramientas.php" class="card">
+            <div class="card-icon">🛠️</div>
+            <h3>Herramientas</h3>
+            <p>Accede a las herramientas de trabajo: Cotizador y Consulta de Clientes</p>
+        </a>
 
-        &lt;a href="pages/rh.php" class="card"&gt;
-            &lt;div class="card-icon"&gt;👥&lt;/div&gt;
-            &lt;h3&gt;Recursos Humanos&lt;/h3&gt;
-            &lt;p&gt;Información sobre vacaciones, cumpleaños y capacitación&lt;/p&gt;
-        &lt;/a&gt;
+        <a href="pages/rh.php" class="card">
+            <div class="card-icon">👥</div>
+            <h3>Recursos Humanos</h3>
+            <p>Información sobre vacaciones, cumpleaños y capacitación</p>
+        </a>
 
-        &lt;a href="pages/crm.php" class="card"&gt;
-            &lt;div class="card-icon"&gt;📊&lt;/div&gt;
-            &lt;h3&gt;CRM&lt;/h3&gt;
-            &lt;p&gt;Sistema de gestión de relaciones con clientes&lt;/p&gt;
-        &lt;/a&gt;
+        <a href="pages/crm.php" class="card">
+            <div class="card-icon">📊</div>
+            <h3>CRM</h3>
+            <p>Sistema de gestión de relaciones con clientes</p>
+        </a>
 
-        &lt;a href="pages/dms.php" class="card"&gt;
-            &lt;div class="card-icon"&gt;📁&lt;/div&gt;
-            &lt;h3&gt;DMS&lt;/h3&gt;
-            &lt;p&gt;Sistema de gestión documental de la empresa&lt;/p&gt;
-        &lt;/a&gt;
+        <a href="pages/dms.php" class="card">
+            <div class="card-icon">📁</div>
+            <h3>DMS</h3>
+            <p>Sistema de gestión documental de la empresa</p>
+        </a>
 
-        &lt;a href="pages/soporte.php" class="card"&gt;
-            &lt;div class="card-icon"&gt;🆘&lt;/div&gt;
-            &lt;h3&gt;Soporte&lt;/h3&gt;
-            &lt;p&gt;Solicita ayuda técnica y soporte para tus herramientas&lt;/p&gt;
-        &lt;/a&gt;
+        <a href="pages/soporte.php" class="card">
+            <div class="card-icon">🆘</div>
+            <h3>Soporte</h3>
+            <p>Solicita ayuda técnica y soporte para tus herramientas</p>
+        </a>
 
-        &lt;?php if ($esAdmin): ?&gt;
-        &lt;a href="admin/usuarios.php" class="card card-admin"&gt;
-            &lt;div class="card-icon"&gt;⚙️&lt;/div&gt;
-            &lt;h3&gt;Administración de Usuarios&lt;/h3&gt;
-            &lt;p&gt;Gestiona usuarios, roles y permisos del sistema&lt;/p&gt;
-        &lt;/a&gt;
-        &lt;?php endif; ?&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+        <?php if ($esAdmin): ?>
+        <a href="admin/usuarios.php" class="card card-admin">
+            <div class="card-icon">⚙️</div>
+            <h3>Administración de Usuarios</h3>
+            <p>Gestiona usuarios, roles y permisos del sistema</p>
+        </a>
+        <?php endif; ?>
+    </div>
+</div>
 
-&lt;?php include 'includes/footer.php'; ?&gt;
+<?php include 'includes/footer.php'; ?>

@@ -1,39 +1,39 @@
-&lt;?php
+<?php
 $tituloPagina = 'DMS - KwSin Portal Corporativo';
 include '../includes/header.php';
-?&gt;
+?>
 
-&lt;div class="container"&gt;
-    &lt;div class="section-header"&gt;
-        &lt;h1&gt;📁 Sistema de Gestión Documental&lt;/h1&gt;
-        &lt;p&gt;Accede y gestiona documentos corporativos&lt;/p&gt;
-    &lt;/div&gt;
+<div class="container">
+    <div class="section-header">
+        <h1>📁 Sistema de Gestión Documental</h1>
+        <p>Accede y gestiona documentos corporativos</p>
+    </div>
 
-    &lt;div class="content-box"&gt;
-        &lt;h2&gt;Acceso al Sistema DMS&lt;/h2&gt;
-        &lt;p&gt;Utiliza el siguiente enlace para acceder al sistema de gestión documental.&lt;/p&gt;
+    <div class="content-box">
+        <h2>Acceso al Sistema DMS</h2>
+        <p>Utiliza el siguiente enlace para acceder al sistema de gestión documental.</p>
 
-        &lt;div class="links-list"&gt;
-            &lt;a href="#" class="link-item" target="_blank"&gt;
-                &lt;div&gt;
-                    &lt;h3&gt;Ir al Sistema DMS&lt;/h3&gt;
-                    &lt;p&gt;Gestiona y consulta documentos corporativos&lt;/p&gt;
-                &lt;/div&gt;
-            &lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
+        <div class="links-list">
+            <a href="#" class="link-item" target="_blank">
+                <div>
+                    <h3>Ir al Sistema DMS</h3>
+                    <p>Gestiona y consulta documentos corporativos</p>
+                </div>
+            </a>
+        </div>
+    </div>
 
-    &lt;div class="content-box"&gt;
-        &lt;h2&gt;Información&lt;/h2&gt;
-        &lt;p&gt;El sistema de gestión documental te permite:&lt;/p&gt;
-        &lt;ul style="margin-left: 2rem; line-height: 2;"&gt;
-            &lt;li&gt;Almacenar documentos de forma segura&lt;/li&gt;
-            &lt;li&gt;Organizar documentos por categorías&lt;/li&gt;
-            &lt;li&gt;Búsqueda rápida de documentos&lt;/li&gt;
-            &lt;li&gt;Control de versiones&lt;/li&gt;
-            &lt;li&gt;Compartir documentos con permisos específicos&lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+    <div class="content-box">
+        <h2>Información</h2>
+        <p>El sistema de gestión documental te permite:</p>
+        <ul style="margin-left: 2rem; line-height: 2;">
+            <li>Almacenar documentos de forma segura</li>
+            <li>Organizar documentos por categorías</li>
+            <li>Búsqueda rápida de documentos</li>
+            <li>Control de versiones</li>
+            <li>Compartir documentos con permisos específicos</li>
+        </ul>
+    </div>
+</div>
 
-&lt;?php include '../includes/footer.php'; ?&gt;
+<?php include '../includes/footer.php'; ?>

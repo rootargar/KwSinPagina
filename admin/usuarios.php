@@ -1,4 +1,4 @@
-&lt;?php
+<?php
 $tituloPagina = 'Administración de Usuarios - KwSin Portal Corporativo';
 include '../includes/header.php';
 require_once '../includes/auth.php';
@@ -78,113 +78,113 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Obtener lista de usuarios
 $sql = "SELECT IdUsuario, Usuario, Rol FROM Usuarios ORDER BY Usuario";
 $stmt = sqlsrv_query($conn, $sql);
-?&gt;
+?>
 
-&lt;div class="container"&gt;
-    &lt;div class="section-header"&gt;
-        &lt;h1&gt;⚙️ Administración de Usuarios&lt;/h1&gt;
-        &lt;p&gt;Gestiona usuarios, roles y permisos del sistema&lt;/p&gt;
-    &lt;/div&gt;
+<div class="container">
+    <div class="section-header">
+        <h1>⚙️ Administración de Usuarios</h1>
+        <p>Gestiona usuarios, roles y permisos del sistema</p>
+    </div>
 
-    &lt;?php if (isset($error)): ?&gt;
-        &lt;div class="alert alert-error"&gt;&lt;?php echo htmlspecialchars($error); ?&gt;&lt;/div&gt;
-    &lt;?php endif; ?&gt;
+    <?php if (isset($error)): ?>
+        <div class="alert alert-error"><?php echo htmlspecialchars($error); ?></div>
+    <?php endif; ?>
 
-    &lt;?php if (isset($success)): ?&gt;
-        &lt;div class="alert alert-success"&gt;&lt;?php echo htmlspecialchars($success); ?&gt;&lt;/div&gt;
-    &lt;?php endif; ?&gt;
+    <?php if (isset($success)): ?>
+        <div class="alert alert-success"><?php echo htmlspecialchars($success); ?></div>
+    <?php endif; ?>
 
-    &lt;div class="content-box"&gt;
-        &lt;button class="btn btn-primary" onclick="abrirModalUsuario()"&gt;+ Nuevo Usuario&lt;/button&gt;
-    &lt;/div&gt;
+    <div class="content-box">
+        <button class="btn btn-primary" onclick="abrirModalUsuario()">+ Nuevo Usuario</button>
+    </div>
 
-    &lt;div class="table-container"&gt;
-        &lt;table&gt;
-            &lt;thead&gt;
-                &lt;tr&gt;
-                    &lt;th&gt;ID&lt;/th&gt;
-                    &lt;th&gt;Usuario&lt;/th&gt;
-                    &lt;th&gt;Rol&lt;/th&gt;
-                    &lt;th&gt;Acciones&lt;/th&gt;
-                &lt;/tr&gt;
-            &lt;/thead&gt;
-            &lt;tbody&gt;
-                &lt;?php
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Usuario</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
                 if ($stmt === false) {
-                    echo '&lt;tr&gt;&lt;td colspan="4"&gt;Error al cargar usuarios&lt;/td&gt;&lt;/tr&gt;';
+                    echo '<tr><td colspan="4">Error al cargar usuarios</td></tr>';
                 } else {
                     while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)):
                         $esMismoUsuario = ($row['IdUsuario'] == $_SESSION['id_usuario']);
-                ?&gt;
-                &lt;tr&gt;
-                    &lt;td&gt;&lt;?php echo htmlspecialchars($row['IdUsuario']); ?&gt;&lt;/td&gt;
-                    &lt;td&gt;&lt;?php echo htmlspecialchars($row['Usuario']); ?&gt;&lt;/td&gt;
-                    &lt;td&gt;
-                        &lt;span style="padding: 0.25rem 0.75rem; border-radius: 4px; background-color: &lt;?php echo $row['Rol'] === 'Administrador' ? 'var(--azul-principal)' : 'var(--gris-medio)'; ?&gt;; color: white; font-size: 0.813rem;"&gt;
-                            &lt;?php echo htmlspecialchars($row['Rol']); ?&gt;
-                        &lt;/span&gt;
-                    &lt;/td&gt;
-                    &lt;td&gt;
-                        &lt;div class="table-actions"&gt;
-                            &lt;button class="btn btn-sm btn-secondary" onclick='editarUsuario(&lt;?php echo json_encode($row); ?&gt;)'&gt;Editar&lt;/button&gt;
+                ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($row['IdUsuario']); ?></td>
+                    <td><?php echo htmlspecialchars($row['Usuario']); ?></td>
+                    <td>
+                        <span style="padding: 0.25rem 0.75rem; border-radius: 4px; background-color: <?php echo $row['Rol'] === 'Administrador' ? 'var(--azul-principal)' : 'var(--gris-medio)'; ?>; color: white; font-size: 0.813rem;">
+                            <?php echo htmlspecialchars($row['Rol']); ?>
+                        </span>
+                    </td>
+                    <td>
+                        <div class="table-actions">
+                            <button class="btn btn-sm btn-secondary" onclick='editarUsuario(<?php echo json_encode($row); ?>)'>Editar</button>
 
-                            &lt;?php if (!$esMismoUsuario): ?&gt;
-                            &lt;form method="POST" style="display: inline;" onsubmit="return confirm('¿Estás seguro de eliminar este usuario?')"&gt;
-                                &lt;input type="hidden" name="accion" value="eliminar"&gt;
-                                &lt;input type="hidden" name="id_usuario" value="&lt;?php echo $row['IdUsuario']; ?&gt;"&gt;
-                                &lt;button type="submit" class="btn btn-sm btn-danger"&gt;Eliminar&lt;/button&gt;
-                            &lt;/form&gt;
-                            &lt;?php endif; ?&gt;
-                        &lt;/div&gt;
-                    &lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;?php
+                            <?php if (!$esMismoUsuario): ?>
+                            <form method="POST" style="display: inline;" onsubmit="return confirm('¿Estás seguro de eliminar este usuario?')">
+                                <input type="hidden" name="accion" value="eliminar">
+                                <input type="hidden" name="id_usuario" value="<?php echo $row['IdUsuario']; ?>">
+                                <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                            </form>
+                            <?php endif; ?>
+                        </div>
+                    </td>
+                </tr>
+                <?php
                     endwhile;
                     sqlsrv_free_stmt($stmt);
                 }
-                ?&gt;
-            &lt;/tbody&gt;
-        &lt;/table&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+                ?>
+            </tbody>
+        </table>
+    </div>
+</div>
 
-&lt;!-- Modal para crear/editar usuario --&gt;
-&lt;div id="modalUsuario" class="modal"&gt;
-    &lt;div class="modal-content"&gt;
-        &lt;div class="modal-header"&gt;
-            &lt;h2 id="modalTitulo"&gt;Nuevo Usuario&lt;/h2&gt;
-            &lt;button class="modal-close" onclick="cerrarModalUsuario()"&gt;&amp;times;&lt;/button&gt;
-        &lt;/div&gt;
-        &lt;form method="POST"&gt;
-            &lt;input type="hidden" name="accion" id="accion" value="crear"&gt;
-            &lt;input type="hidden" name="id_usuario" id="id_usuario"&gt;
+<!-- Modal para crear/editar usuario -->
+<div id="modalUsuario" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalTitulo">Nuevo Usuario</h2>
+            <button class="modal-close" onclick="cerrarModalUsuario()">&times;</button>
+        </div>
+        <form method="POST">
+            <input type="hidden" name="accion" id="accion" value="crear">
+            <input type="hidden" name="id_usuario" id="id_usuario">
 
-            &lt;div class="form-group"&gt;
-                &lt;label for="usuario"&gt;Usuario&lt;/label&gt;
-                &lt;input type="text" id="usuario" name="usuario" required&gt;
-            &lt;/div&gt;
+            <div class="form-group">
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" name="usuario" required>
+            </div>
 
-            &lt;div class="form-group"&gt;
-                &lt;label for="contrasena"&gt;Contraseña&lt;/label&gt;
-                &lt;input type="password" id="contrasena" name="contrasena"&gt;
-                &lt;small style="color: var(--gris-medio);"&gt;Dejar en blanco para mantener la contraseña actual (solo al editar)&lt;/small&gt;
-            &lt;/div&gt;
+            <div class="form-group">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" id="contrasena" name="contrasena">
+                <small style="color: var(--gris-medio);">Dejar en blanco para mantener la contraseña actual (solo al editar)</small>
+            </div>
 
-            &lt;div class="form-group"&gt;
-                &lt;label for="rol"&gt;Rol&lt;/label&gt;
-                &lt;select id="rol" name="rol" required&gt;
-                    &lt;option value=""&gt;Seleccionar rol...&lt;/option&gt;
-                    &lt;option value="Administrador"&gt;Administrador&lt;/option&gt;
-                    &lt;option value="Usuario"&gt;Usuario&lt;/option&gt;
-                &lt;/select&gt;
-            &lt;/div&gt;
+            <div class="form-group">
+                <label for="rol">Rol</label>
+                <select id="rol" name="rol" required>
+                    <option value="">Seleccionar rol...</option>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Usuario">Usuario</option>
+                </select>
+            </div>
 
-            &lt;div style="display: flex; gap: 1rem; justify-content: flex-end;"&gt;
-                &lt;button type="button" class="btn btn-secondary" onclick="cerrarModalUsuario()"&gt;Cancelar&lt;/button&gt;
-                &lt;button type="submit" class="btn btn-primary"&gt;Guardar&lt;/button&gt;
-            &lt;/div&gt;
-        &lt;/form&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+            <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                <button type="button" class="btn btn-secondary" onclick="cerrarModalUsuario()">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
 
-&lt;?php include '../includes/footer.php'; ?&gt;
+<?php include '../includes/footer.php'; ?>

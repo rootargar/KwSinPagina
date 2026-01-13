@@ -1,4 +1,4 @@
-&lt;?php
+<?php
 session_start();
 
 // Si ya está autenticado, redirigir al inicio
@@ -39,41 +39,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Por favor ingrese usuario y contraseña';
     }
 }
-?&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html lang="es"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Iniciar Sesión - KwSin&lt;/title&gt;
-    &lt;link rel="stylesheet" href="assets/css/style.css"&gt;
-&lt;/head&gt;
-&lt;body class="login-page"&gt;
-    &lt;div class="login-container"&gt;
-        &lt;div class="login-box"&gt;
-            &lt;img src="assets/img/kwdaf.png" alt="Logo KwSin" class="login-logo"&gt;
-            &lt;h1&gt;Iniciar Sesión&lt;/h1&gt;
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - KwSin</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-box">
+            <img src="assets/img/kwdaf.png" alt="Logo KwSin" class="login-logo">
+            <h1>Iniciar Sesión</h1>
 
-            &lt;?php if ($error): ?&gt;
-                &lt;div class="alert alert-error"&gt;
-                    &lt;?php echo htmlspecialchars($error); ?&gt;
-                &lt;/div&gt;
-            &lt;?php endif; ?&gt;
+            <?php if ($error): ?>
+                <div class="alert alert-error">
+                    <?php echo htmlspecialchars($error); ?>
+                </div>
+            <?php endif; ?>
 
-            &lt;form method="POST" action="login.php"&gt;
-                &lt;div class="form-group"&gt;
-                    &lt;label for="usuario"&gt;Usuario&lt;/label&gt;
-                    &lt;input type="text" id="usuario" name="usuario" required autofocus&gt;
-                &lt;/div&gt;
+            <form method="POST" action="login.php">
+                <div class="form-group">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" id="usuario" name="usuario" required autofocus>
+                </div>
 
-                &lt;div class="form-group"&gt;
-                    &lt;label for="contrasena"&gt;Contraseña&lt;/label&gt;
-                    &lt;input type="password" id="contrasena" name="contrasena" required&gt;
-                &lt;/div&gt;
+                <div class="form-group">
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" id="contrasena" name="contrasena" required>
+                </div>
 
-                &lt;button type="submit" class="btn btn-primary btn-block"&gt;Iniciar Sesión&lt;/button&gt;
-            &lt;/form&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+                <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

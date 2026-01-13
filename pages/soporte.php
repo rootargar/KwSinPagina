@@ -1,54 +1,54 @@
-&lt;?php
+<?php
 $tituloPagina = 'Soporte - KwSin Portal Corporativo';
 include '../includes/header.php';
-?&gt;
+?>
 
-&lt;div class="container"&gt;
-    &lt;div class="section-header"&gt;
-        &lt;h1&gt;🆘 Soporte Técnico&lt;/h1&gt;
-        &lt;p&gt;Solicita ayuda y soporte técnico&lt;/p&gt;
-    &lt;/div&gt;
+<div class="container">
+    <div class="section-header">
+        <h1>🆘 Soporte Técnico</h1>
+        <p>Solicita ayuda y soporte técnico</p>
+    </div>
 
-    &lt;div class="content-box"&gt;
-        &lt;h2&gt;Acceso al Sistema de Soporte&lt;/h2&gt;
-        &lt;p&gt;Utiliza el siguiente enlace para acceder al sistema de tickets de soporte.&lt;/p&gt;
+    <div class="content-box">
+        <h2>Acceso al Sistema de Soporte</h2>
+        <p>Utiliza el siguiente enlace para acceder al sistema de tickets de soporte.</p>
 
-        &lt;div class="links-list"&gt;
-            &lt;a href="#" class="link-item" target="_blank"&gt;
-                &lt;div&gt;
-                    &lt;h3&gt;Ir al Sistema de Soporte&lt;/h3&gt;
-                    &lt;p&gt;Crea y consulta tickets de soporte técnico&lt;/p&gt;
-                &lt;/div&gt;
-            &lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
+        <div class="links-list">
+            <a href="#" class="link-item" target="_blank">
+                <div>
+                    <h3>Ir al Sistema de Soporte</h3>
+                    <p>Crea y consulta tickets de soporte técnico</p>
+                </div>
+            </a>
+        </div>
+    </div>
 
-    &lt;div class="content-box"&gt;
-        &lt;h2&gt;Información de Contacto&lt;/h2&gt;
-        &lt;p&gt;&lt;strong&gt;Horario de atención:&lt;/strong&gt; Lunes a Viernes de 8:00 AM a 6:00 PM&lt;/p&gt;
-        &lt;p&gt;&lt;strong&gt;Correo electrónico:&lt;/strong&gt; soporte@kwsin.com&lt;/p&gt;
-        &lt;p&gt;&lt;strong&gt;Teléfono:&lt;/strong&gt; (555) 123-4567&lt;/p&gt;
-    &lt;/div&gt;
+    <div class="content-box">
+        <h2>Información de Contacto</h2>
+        <p><strong>Horario de atención:</strong> Lunes a Viernes de 8:00 AM a 6:00 PM</p>
+        <p><strong>Correo electrónico:</strong> soporte@kwsin.com</p>
+        <p><strong>Teléfono:</strong> (555) 123-4567</p>
+    </div>
 
-    &lt;div class="content-box"&gt;
-        &lt;h2&gt;Preguntas Frecuentes&lt;/h2&gt;
-        &lt;div style="line-height: 2;"&gt;
-            &lt;details style="margin-bottom: 1rem;"&gt;
-                &lt;summary style="cursor: pointer; font-weight: 600;"&gt;¿Cómo crear un ticket de soporte?&lt;/summary&gt;
-                &lt;p style="margin-top: 0.5rem; padding-left: 1rem;"&gt;Accede al sistema de soporte y haz clic en "Nuevo Ticket". Completa el formulario con los detalles de tu problema.&lt;/p&gt;
-            &lt;/details&gt;
+    <div class="content-box">
+        <h2>Preguntas Frecuentes</h2>
+        <div style="line-height: 2;">
+            <details style="margin-bottom: 1rem;">
+                <summary style="cursor: pointer; font-weight: 600;">¿Cómo crear un ticket de soporte?</summary>
+                <p style="margin-top: 0.5rem; padding-left: 1rem;">Accede al sistema de soporte y haz clic en "Nuevo Ticket". Completa el formulario con los detalles de tu problema.</p>
+            </details>
 
-            &lt;details style="margin-bottom: 1rem;"&gt;
-                &lt;summary style="cursor: pointer; font-weight: 600;"&gt;¿Cuánto tiempo tarda la respuesta?&lt;/summary&gt;
-                &lt;p style="margin-top: 0.5rem; padding-left: 1rem;"&gt;El tiempo de respuesta promedio es de 2-4 horas laborales dependiendo de la prioridad del ticket.&lt;/p&gt;
-            &lt;/details&gt;
+            <details style="margin-bottom: 1rem;">
+                <summary style="cursor: pointer; font-weight: 600;">¿Cuánto tiempo tarda la respuesta?</summary>
+                <p style="margin-top: 0.5rem; padding-left: 1rem;">El tiempo de respuesta promedio es de 2-4 horas laborales dependiendo de la prioridad del ticket.</p>
+            </details>
 
-            &lt;details style="margin-bottom: 1rem;"&gt;
-                &lt;summary style="cursor: pointer; font-weight: 600;"&gt;¿Dónde puedo ver el estatus de mi ticket?&lt;/summary&gt;
-                &lt;p style="margin-top: 0.5rem; padding-left: 1rem;"&gt;En el sistema de soporte podrás ver todos tus tickets y su estatus actual en la sección "Mis Tickets".&lt;/p&gt;
-            &lt;/details&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+            <details style="margin-bottom: 1rem;">
+                <summary style="cursor: pointer; font-weight: 600;">¿Dónde puedo ver el estatus de mi ticket?</summary>
+                <p style="margin-top: 0.5rem; padding-left: 1rem;">En el sistema de soporte podrás ver todos tus tickets y su estatus actual en la sección "Mis Tickets".</p>
+            </details>
+        </div>
+    </div>
+</div>
 
-&lt;?php include '../includes/footer.php'; ?&gt;
+<?php include '../includes/footer.php'; ?>

@@ -1,4 +1,4 @@
-&lt;?php
+<?php
 $tituloPagina = 'Comunicados - KwSin Portal Corporativo';
 include '../includes/header.php';
 require_once '../config/conexion.php';
@@ -77,108 +77,108 @@ if ($esAdmin && $_SERVER['REQUEST_METHOD'] === 'POST') {
 // Obtener comunicados activos
 $sql = "SELECT * FROM Comunicados WHERE Activo = 1 ORDER BY FechaPublicacion DESC";
 $stmt = sqlsrv_query($conn, $sql);
-?&gt;
+?>
 
-&lt;div class="container"&gt;
-    &lt;div class="section-header"&gt;
-        &lt;h1&gt;📢 Comunicados&lt;/h1&gt;
-        &lt;p&gt;Mantente informado sobre los últimos anuncios y comunicados de la empresa&lt;/p&gt;
-    &lt;/div&gt;
+<div class="container">
+    <div class="section-header">
+        <h1>📢 Comunicados</h1>
+        <p>Mantente informado sobre los últimos anuncios y comunicados de la empresa</p>
+    </div>
 
-    &lt;?php if ($esAdmin): ?&gt;
-    &lt;div class="content-box"&gt;
-        &lt;button class="btn btn-primary" onclick="abrirModalComunicado()"&gt;+ Nuevo Comunicado&lt;/button&gt;
-    &lt;/div&gt;
-    &lt;?php endif; ?&gt;
+    <?php if ($esAdmin): ?>
+    <div class="content-box">
+        <button class="btn btn-primary" onclick="abrirModalComunicado()">+ Nuevo Comunicado</button>
+    </div>
+    <?php endif; ?>
 
-    &lt;div class="comunicados-lista"&gt;
-        &lt;?php
+    <div class="comunicados-lista">
+        <?php
         if ($stmt === false) {
-            echo '&lt;div class="alert alert-error"&gt;Error al cargar comunicados&lt;/div&gt;';
+            echo '<div class="alert alert-error">Error al cargar comunicados</div>';
         } else {
             $hayComunicados = false;
             while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
                 $hayComunicados = true;
                 $fecha = $row['FechaPublicacion'];
-                $fechaFormateada = $fecha ? $fecha-&gt;format('d/m/Y H:i') : '';
-        ?&gt;
-        &lt;div class="comunicado-item"&gt;
-            &lt;div class="comunicado-date"&gt;&lt;?php echo htmlspecialchars($fechaFormateada); ?&gt;&lt;/div&gt;
-            &lt;h2&gt;&lt;?php echo htmlspecialchars($row['Titulo']); ?&gt;&lt;/h2&gt;
+                $fechaFormateada = $fecha ? $fecha->format('d/m/Y H:i') : '';
+        ?>
+        <div class="comunicado-item">
+            <div class="comunicado-date"><?php echo htmlspecialchars($fechaFormateada); ?></div>
+            <h2><?php echo htmlspecialchars($row['Titulo']); ?></h2>
 
-            &lt;?php if (!empty($row['Imagenes'])): ?&gt;
-                &lt;div class="comunicado-images"&gt;
-                    &lt;?php
+            <?php if (!empty($row['Imagenes'])): ?>
+                <div class="comunicado-images">
+                    <?php
                     $imagenes = explode(',', $row['Imagenes']);
                     foreach ($imagenes as $imagen):
-                    ?&gt;
-                        &lt;img src="/uploads/comunicados/&lt;?php echo htmlspecialchars($imagen); ?&gt;" alt="Imagen comunicado"&gt;
-                    &lt;?php endforeach; ?&gt;
-                &lt;/div&gt;
-            &lt;?php endif; ?&gt;
+                    ?>
+                        <img src="/uploads/comunicados/<?php echo htmlspecialchars($imagen); ?>" alt="Imagen comunicado">
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
 
-            &lt;div class="comunicado-content"&gt;
-                &lt;?php echo nl2br(htmlspecialchars($row['Contenido'])); ?&gt;
-            &lt;/div&gt;
+            <div class="comunicado-content">
+                <?php echo nl2br(htmlspecialchars($row['Contenido'])); ?>
+            </div>
 
-            &lt;?php if ($esAdmin): ?&gt;
-            &lt;div style="margin-top: 1rem; display: flex; gap: 0.5rem;"&gt;
-                &lt;button class="btn btn-sm btn-secondary" onclick='editarComunicado(&lt;?php echo json_encode($row); ?&gt;)'&gt;Editar&lt;/button&gt;
-                &lt;form method="POST" style="display: inline;" onsubmit="return confirm('¿Eliminar este comunicado?')"&gt;
-                    &lt;input type="hidden" name="accion" value="eliminar"&gt;
-                    &lt;input type="hidden" name="id_comunicado" value="&lt;?php echo $row['IdComunicado']; ?&gt;"&gt;
-                    &lt;button type="submit" class="btn btn-sm btn-danger"&gt;Eliminar&lt;/button&gt;
-                &lt;/form&gt;
-            &lt;/div&gt;
-            &lt;?php endif; ?&gt;
-        &lt;/div&gt;
-        &lt;?php
+            <?php if ($esAdmin): ?>
+            <div style="margin-top: 1rem; display: flex; gap: 0.5rem;">
+                <button class="btn btn-sm btn-secondary" onclick='editarComunicado(<?php echo json_encode($row); ?>)'>Editar</button>
+                <form method="POST" style="display: inline;" onsubmit="return confirm('¿Eliminar este comunicado?')">
+                    <input type="hidden" name="accion" value="eliminar">
+                    <input type="hidden" name="id_comunicado" value="<?php echo $row['IdComunicado']; ?>">
+                    <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                </form>
+            </div>
+            <?php endif; ?>
+        </div>
+        <?php
             }
 
             if (!$hayComunicados) {
-                echo '&lt;div class="alert alert-info"&gt;No hay comunicados disponibles en este momento.&lt;/div&gt;';
+                echo '<div class="alert alert-info">No hay comunicados disponibles en este momento.</div>';
             }
 
             sqlsrv_free_stmt($stmt);
         }
-        ?&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+        ?>
+    </div>
+</div>
 
-&lt;?php if ($esAdmin): ?&gt;
-&lt;!-- Modal para crear/editar comunicado --&gt;
-&lt;div id="modalComunicado" class="modal"&gt;
-    &lt;div class="modal-content"&gt;
-        &lt;div class="modal-header"&gt;
-            &lt;h2 id="modalTitulo"&gt;Nuevo Comunicado&lt;/h2&gt;
-            &lt;button class="modal-close" onclick="cerrarModalComunicado()"&gt;&amp;times;&lt;/button&gt;
-        &lt;/div&gt;
-        &lt;form method="POST" enctype="multipart/form-data"&gt;
-            &lt;input type="hidden" name="accion" value="guardar"&gt;
-            &lt;input type="hidden" name="id_comunicado" id="id_comunicado"&gt;
+<?php if ($esAdmin): ?>
+<!-- Modal para crear/editar comunicado -->
+<div id="modalComunicado" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalTitulo">Nuevo Comunicado</h2>
+            <button class="modal-close" onclick="cerrarModalComunicado()">&times;</button>
+        </div>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="accion" value="guardar">
+            <input type="hidden" name="id_comunicado" id="id_comunicado">
 
-            &lt;div class="form-group"&gt;
-                &lt;label for="titulo"&gt;Título del Comunicado&lt;/label&gt;
-                &lt;input type="text" id="titulo" name="titulo" required&gt;
-            &lt;/div&gt;
+            <div class="form-group">
+                <label for="titulo">Título del Comunicado</label>
+                <input type="text" id="titulo" name="titulo" required>
+            </div>
 
-            &lt;div class="form-group"&gt;
-                &lt;label for="contenido"&gt;Contenido&lt;/label&gt;
-                &lt;textarea id="contenido" name="contenido" rows="8"&gt;&lt;/textarea&gt;
-            &lt;/div&gt;
+            <div class="form-group">
+                <label for="contenido">Contenido</label>
+                <textarea id="contenido" name="contenido" rows="8"></textarea>
+            </div>
 
-            &lt;div class="form-group"&gt;
-                &lt;label for="imagenes"&gt;Imágenes (puede seleccionar varias)&lt;/label&gt;
-                &lt;input type="file" id="imagenes" name="imagenes[]" accept="image/*" multiple&gt;
-            &lt;/div&gt;
+            <div class="form-group">
+                <label for="imagenes">Imágenes (puede seleccionar varias)</label>
+                <input type="file" id="imagenes" name="imagenes[]" accept="image/*" multiple>
+            </div>
 
-            &lt;div style="display: flex; gap: 1rem; justify-content: flex-end;"&gt;
-                &lt;button type="button" class="btn btn-secondary" onclick="cerrarModalComunicado()"&gt;Cancelar&lt;/button&gt;
-                &lt;button type="submit" class="btn btn-primary"&gt;Guardar&lt;/button&gt;
-            &lt;/div&gt;
-        &lt;/form&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;?php endif; ?&gt;
+            <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                <button type="button" class="btn btn-secondary" onclick="cerrarModalComunicado()">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+<?php endif; ?>
 
-&lt;?php include '../includes/footer.php'; ?&gt;
+<?php include '../includes/footer.php'; ?>

@@ -1,4 +1,4 @@
-&lt;?php
+<?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -15,45 +15,45 @@ $esAdmin = ($rol === 'Administrador');
 
 // Determinar la página actual
 $paginaActual = basename($_SERVER['PHP_SELF']);
-?&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html lang="es"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;&lt;?php echo $tituloPagina ?? 'KwSin - Portal Corporativo'; ?&gt;&lt;/title&gt;
-    &lt;link rel="stylesheet" href="/assets/css/style.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;header class="header-fixed"&gt;
-        &lt;div class="header-container"&gt;
-            &lt;div class="header-logo"&gt;
-                &lt;a href="/index.php"&gt;
-                    &lt;img src="/assets/img/kwdaf.png" alt="Logo KwSin"&gt;
-                &lt;/a&gt;
-            &lt;/div&gt;
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $tituloPagina ?? 'KwSin - Portal Corporativo'; ?></title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <header class="header-fixed">
+        <div class="header-container">
+            <div class="header-logo">
+                <a href="/index.php">
+                    <img src="/assets/img/kwdaf.png" alt="Logo KwSin">
+                </a>
+            </div>
 
-            &lt;nav class="header-nav"&gt;
-                &lt;ul&gt;
-                    &lt;li&gt;&lt;a href="/index.php" class="&lt;?php echo ($paginaActual === 'index.php') ? 'active' : ''; ?&gt;"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href="/pages/comunicados.php" class="&lt;?php echo ($paginaActual === 'comunicados.php') ? 'active' : ''; ?&gt;"&gt;Comunicados&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href="/pages/herramientas.php" class="&lt;?php echo ($paginaActual === 'herramientas.php') ? 'active' : ''; ?&gt;"&gt;Herramientas&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href="/pages/rh.php" class="&lt;?php echo ($paginaActual === 'rh.php') ? 'active' : ''; ?&gt;"&gt;RH&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href="/pages/crm.php" class="&lt;?php echo ($paginaActual === 'crm.php') ? 'active' : ''; ?&gt;"&gt;CRM&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href="/pages/dms.php" class="&lt;?php echo ($paginaActual === 'dms.php') ? 'active' : ''; ?&gt;"&gt;DMS&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href="/pages/soporte.php" class="&lt;?php echo ($paginaActual === 'soporte.php') ? 'active' : ''; ?&gt;"&gt;Soporte&lt;/a&gt;&lt;/li&gt;
-                    &lt;?php if ($esAdmin): ?&gt;
-                        &lt;li&gt;&lt;a href="/admin/usuarios.php" class="&lt;?php echo ($paginaActual === 'usuarios.php') ? 'active' : ''; ?&gt;"&gt;Usuarios&lt;/a&gt;&lt;/li&gt;
-                    &lt;?php endif; ?&gt;
-                &lt;/ul&gt;
-            &lt;/nav&gt;
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="/index.php" class="<?php echo ($paginaActual === 'index.php') ? 'active' : ''; ?>">Inicio</a></li>
+                    <li><a href="/pages/comunicados.php" class="<?php echo ($paginaActual === 'comunicados.php') ? 'active' : ''; ?>">Comunicados</a></li>
+                    <li><a href="/pages/herramientas.php" class="<?php echo ($paginaActual === 'herramientas.php') ? 'active' : ''; ?>">Herramientas</a></li>
+                    <li><a href="/pages/rh.php" class="<?php echo ($paginaActual === 'rh.php') ? 'active' : ''; ?>">RH</a></li>
+                    <li><a href="/pages/crm.php" class="<?php echo ($paginaActual === 'crm.php') ? 'active' : ''; ?>">CRM</a></li>
+                    <li><a href="/pages/dms.php" class="<?php echo ($paginaActual === 'dms.php') ? 'active' : ''; ?>">DMS</a></li>
+                    <li><a href="/pages/soporte.php" class="<?php echo ($paginaActual === 'soporte.php') ? 'active' : ''; ?>">Soporte</a></li>
+                    <?php if ($esAdmin): ?>
+                        <li><a href="/admin/usuarios.php" class="<?php echo ($paginaActual === 'usuarios.php') ? 'active' : ''; ?>">Usuarios</a></li>
+                    <?php endif; ?>
+                </ul>
+            </nav>
 
-            &lt;div class="header-user"&gt;
-                &lt;span class="user-name"&gt;&lt;?php echo htmlspecialchars($usuario); ?&gt;&lt;/span&gt;
-                &lt;span class="user-role"&gt;(&lt;?php echo htmlspecialchars($rol); ?&gt;)&lt;/span&gt;
-                &lt;a href="/logout.php" class="btn-logout"&gt;Cerrar Sesión&lt;/a&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/header&gt;
+            <div class="header-user">
+                <span class="user-name"><?php echo htmlspecialchars($usuario); ?></span>
+                <span class="user-role">(<?php echo htmlspecialchars($rol); ?>)</span>
+                <a href="/logout.php" class="btn-logout">Cerrar Sesión</a>
+            </div>
+        </div>
+    </header>
 
-    &lt;main class="main-content"&gt;
+    <main class="main-content">
