@@ -1,0 +1,12 @@
+CREATE TABLE Usuarios (
+    IdUsuario INT IDENTITY(1,1) PRIMARY KEY,
+    Usuario NVARCHAR(50) NOT NULL UNIQUE,
+    Contrasena NVARCHAR(50) NOT NULL,
+    Rol NVARCHAR(20) NOT NULL
+);
+INSERT INTO Usuarios (Usuario, Contrasena, Rol)
+VALUES 
+('admin', 'admin123', 'Administrador'),
+('usuario1', 'user123', 'Usuario');
+
+Select  * from Usuarios 
