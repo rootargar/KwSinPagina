@@ -75,25 +75,29 @@ KwSinPagina/
        Rol NVARCHAR(20) NOT NULL
    );
 
-   -- Insertar usuarios de prueba
+   -- Insertar usuarios de prueba (CREDENCIALES FICTICIAS)
+   -- ADVERTENCIA: Cambiar estas credenciales en producción
    INSERT INTO Usuarios (Usuario, Contrasena, Rol)
    VALUES
-   ('admin', 'admin123', 'Administrador'),
-   ('usuario1', 'user123', 'Usuario');
+   ('admin', 'admin123', 'Administrador'), -- FICTICIO
+   ('usuario1', 'user123', 'Usuario'); -- FICTICIO
    ```
 
 3. **Configurar la conexión a la base de datos:**
 
-   Editar el archivo `config/conexion.php` con las credenciales de tu servidor:
+   Copiar `config/conexion.example.php` como `config/conexion.php` y editar con las credenciales reales de tu servidor:
 
    ```php
-   $serverName = "TU_SERVIDOR";
+   // IMPORTANTE: Usar credenciales reales, no los valores de ejemplo
+   $serverName = "TU_SERVIDOR"; // FICTICIO - Reemplazar con tu servidor real
    $connectionOptions = array(
-       "Database" => "TU_BASE_DE_DATOS",
-       "Uid" => "TU_USUARIO",
-       "PWD" => "TU_CONTRASEÑA"
+       "Database" => "TU_BASE_DE_DATOS", // FICTICIO - Reemplazar con tu BD
+       "Uid" => "TU_USUARIO", // FICTICIO - Reemplazar con tu usuario
+       "PWD" => "TU_CONTRASEÑA" // FICTICIO - Reemplazar con tu contraseña
    );
    ```
+
+   **ADVERTENCIA DE SEGURIDAD:** NUNCA subir el archivo `conexion.php` con credenciales reales al repositorio.
 
 4. **Configurar permisos de escritura:**
 
@@ -103,15 +107,19 @@ KwSinPagina/
 
    Abrir en el navegador: `http://localhost/KwSinPagina/`
 
-## Credenciales de Acceso por Defecto
+## Credenciales de Acceso por Defecto (FICTICIAS - Solo para Pruebas)
+
+**IMPORTANTE:** Estas son credenciales de EJEMPLO únicamente. Cambiarlas inmediatamente en producción.
 
 - **Administrador:**
-  - Usuario: `admin`
-  - Contraseña: `admin123`
+  - Usuario: `admin` (FICTICIO)
+  - Contraseña: `admin123` (FICTICIO)
 
 - **Usuario Regular:**
-  - Usuario: `usuario1`
-  - Contraseña: `user123`
+  - Usuario: `usuario1` (FICTICIO)
+  - Contraseña: `user123` (FICTICIO)
+
+**ADVERTENCIA:** Eliminar o cambiar estas credenciales antes de desplegar en producción.
 
 ## Funcionalidades por Rol
 

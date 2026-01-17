@@ -1,12 +1,24 @@
+-- ============================================
+-- SCRIPT DE EJEMPLO - DATOS FICTICIOS
+-- ============================================
+-- IMPORTANTE: Este script contiene datos de prueba únicamente.
+-- Las credenciales aquí mostradas son FICTICIAS y solo para
+-- propósitos de desarrollo y pruebas.
+--
+-- NUNCA usar estas credenciales en producción.
+-- ============================================
+
 CREATE TABLE Usuarios (
     IdUsuario INT IDENTITY(1,1) PRIMARY KEY,
     Usuario NVARCHAR(50) NOT NULL UNIQUE,
     Contrasena NVARCHAR(50) NOT NULL,
     Rol NVARCHAR(20) NOT NULL
 );
+
+-- Insertar usuarios de PRUEBA (CREDENCIALES FICTICIAS)
 INSERT INTO Usuarios (Usuario, Contrasena, Rol)
-VALUES 
+VALUES
 ('admin', 'admin123', 'Administrador'),
 ('usuario1', 'user123', 'Usuario');
 
-Select  * from Usuarios 
+Select * from Usuarios;
